@@ -5,14 +5,14 @@ const thumbs = document.getElementById('thumbs');
 
 bigImg.src = thumbs.querySelector('a').href;
 
-
 thumbs.addEventListener('click', (e) => {
-  const link = e.target.closest('.gallery__thumb');
+  const thumb = e.target.closest('.gallery__thumb');
+  const link = thumb.parentElement;
 
-  if(!link) {
-    return;
-  }
+  if (!thumb) {
+    return
+  };
 
   e.preventDefault();
-  bigImg.src = link.src;
+  bigImg.src = link.href;
 });
